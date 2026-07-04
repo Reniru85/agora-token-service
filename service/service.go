@@ -94,6 +94,7 @@ func NewService() *Service {
 
 	api.Use(s.nocache())
 	api.Use(s.CORSMiddleware())
+	api.Use(s.authMiddleware())
 	api.GET("rtc/:channelName/:role/:tokenType/:rtcuid/", s.getRtcToken)
 	api.GET("rtm/:rtmuid/", s.getRtmToken)
 	api.GET("rte/:channelName/:role/:tokenType/:rtcuid/", s.getRtcRtmToken)
